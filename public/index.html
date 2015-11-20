@@ -64,7 +64,7 @@
     });
 
     // when mouse button is released (note: window, not canvas here)
-    $(window).on('mouseup', function(e){
+    $('#screen').on('mouseup', function(e){
         if (isDown === true) {
 
             isDown = false;
@@ -85,5 +85,16 @@
             button: evt.button
         };
     }
+
+    $(window).on('keydown', function(e){
+        console.log(e);
+        socket.emit('keyboard', e.keyCode)
+    });
+
+    $(window).on('keyup', function(e){
+        console.log(e);
+    });
+
+
 </script>
 </html>

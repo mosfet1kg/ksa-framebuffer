@@ -35,6 +35,7 @@ var png = new PNG({
     checkCRC : false
 });
 
+
 io.sockets.on('connection', function(socket){
 
     socket.on('publish', function(){
@@ -101,7 +102,11 @@ io.sockets.on('connection', function(socket){
 
     socket.on('mouseMove', function(pos){
         robot.moveMouse(pos.x, pos.y);
-    })
+    });
+
+    socket.on('keyboard', function(key){
+        robot.keyTap('a');
+    });
 
 });
 
